@@ -1,0 +1,24 @@
+<div class="title">
+    <h1>Students<span class="title-color">.</span></h1>
+</div>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Picture</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">e-mail</th>
+      <th scope="col" colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="student" *ngFor="let student of studentList">
+      <td><img [src]="student.picture.thumbnail" class="img-thumbnail"/></td>
+      <td>{{student.name.first}}</td>
+      <td>{{student.name.last}}</td>
+      <td>{{student.email}}</td>
+      <td><button class="btn btn-secondary">Modify</button></td>
+      <!-- <td><button class="btn btn-success" (click)="handleDelete($event)">Delete</button></td> -->
+    </tr>
+  </tbody>
+</table>
