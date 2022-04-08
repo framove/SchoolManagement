@@ -1,6 +1,13 @@
+<app-navbar></app-navbar>
 <div class="title">
     <h1>Students<span class="title-color">.</span></h1>
 </div>
+<button class="btn btn-outline-success" (click)="addStudent()" type="submit">Add</button>
+<div *ngIf="isNewStudentActive">
+  <app-new-student (sendStudent)="handleStudent($event)"></app-new-student>
+  <button class="btn btn-outline-success" (click)="back()" type="submit">Back</button>
+</div>
+<div>
 <table class="table table-striped">
   <thead class="table-dark">
     <tr>
@@ -8,17 +15,16 @@
       <th scope="col">First</th>
       <th scope="col">Last</th>
       <th scope="col">e-mail</th>
-      <th scope="col" colspan="3">Actions</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr class="student" *ngFor="let student of studentList">
+    <tr class="student" *ngFor="let student of studentList" (sendDelete)="deleteStudent(student)">
       <td><img [src]="student.picture.thumbnail" class="img-thumbnail"/></td>
       <td>{{student.name.first}}</td>
       <td>{{student.name.last}}</td>
       <td>{{student.email}}</td>
-      <td><button class="btn btn-secondary">Modify</button></td>
-      <!-- <td><button class="btn btn-success" (click)="handleDelete($event)">Delete</button></td> -->
+      <td><button (click)="handleDelete()" class="btn btn-outline-success">Delete</button></td>
     </tr>
   </tbody>
 </table>

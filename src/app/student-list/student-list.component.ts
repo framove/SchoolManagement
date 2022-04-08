@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Student, StudentResponse } from '../models/models';
 import { ProfileService } from './profile.service';
 
@@ -8,10 +8,11 @@ import { ProfileService } from './profile.service';
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
-
-  @Output() sendDelete = new EventEmitter<Student>();
   public studentList: Student[];
+  isNewStudentActive: boolean = false;
   /* filterPost = ''; */
+  @Input() student!: Student;
+  @Output() sendDelete = new EventEmitter<Student>();
 
   constructor(private profileService: ProfileService) { }
 
@@ -21,9 +22,31 @@ export class StudentListComponent implements OnInit {
       });
   }
 
-  /* public handleDelete():void{
-    this.sendDelete.emit(this.student);
+  public addStudent(): void{
+    this.isNewStudentActive = true;
+  }
 
-  } */
+  public back(): void{
+    this.isNewStudentActive = false;
+  }
+
+  public handleDelete(): void {
+    this.sendDelete.emit(this.student)
+  }
+
+  public handleStudent(student: Student): void {
+    console.log(student);
+    this.studentList.push(student);
+    this.isNewStudentActive = false;
+  }
+
+  public deleteStudent(student: Student):void{
+    console.log(student);
+    console.log(this.studentList);
+    
+    
+    const index = this.studentList.findIndex((item) => item.name === student.name);
+    const list = this.studentList.splice(index, 1);
+  }
 
 }

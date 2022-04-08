@@ -17,31 +17,7 @@ export class ProfileService {
   //Obtener lista de estudiantes
 
   getStudents():Observable<StudentResponse> {
-    return this.http.get<StudentResponse>(`${this.baseUrl}/?results=25&inc=name,email,picture`);
+    return this.http.get<StudentResponse>(`${this.baseUrl}/?results=5&inc=name,email,picture`);
   }
-
-  //Crear un estudiante
-  
-  /* createStudents(student: StudentResponse):Observable<StudentResponse> {
-    return this.http.post<StudentResponse>(`${this.baseUrl}/id/`);
-  } */
-
-  //Detalle de estudiante
-  
-  /* detailStudents(id:number):Observable<Student> {
-    return this.http.get<Student>(`${this.baseUrl}/id/`);
-  } */
-
-  //Actualizar estudiante
-  
-  /* update(student: Student):Observable<Student> {
-    return this.http.put<Student>(this.baseUrl);
-  } */
-
-  //Eliminar estudiante
-
-  /* deleteStudent(id:number):Observable<Student> {
-    return this.http.delete<Student>(`${this.baseUrl}/id/`);
-  } */
 
 }

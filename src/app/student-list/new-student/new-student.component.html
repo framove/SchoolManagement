@@ -1,0 +1,13 @@
+<h4>New Student</h4>
+
+<div class="form-add" *ngIf="student">
+    <label for="image">Image</label>
+    <input class="form-control" type="url" name="image" id="image" [(ngModel)]="student.picture.thumbnail">
+    <label for="firstname">First</label>
+    <input class="form-control" type="text" name="firstname" id="firstname" #firstname (keyup)="saveNewStudent(firstname.value)">
+    <label for="lastname">Last</label>
+    <input class="form-control" type="text" name="lastname" id="lastname" [(ngModel)]="student.name.last">
+    <label for="email">email</label>
+    <input class="form-control" type="text" name="email" id="email" [(ngModel)]="student.email">
+    <button (click)="newStudent()">Add</button >
+</div>

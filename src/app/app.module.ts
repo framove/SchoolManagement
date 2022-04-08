@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { FormsModule } from '@angular/forms';
+import { NewStudentComponent } from './student-list/new-student/new-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     StudentListComponent,
+    NewStudentComponent,
   ],
   imports: [
     BrowserModule,
