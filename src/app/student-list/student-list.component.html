@@ -4,7 +4,7 @@
 </div>
 <button class="btn btn-outline-success" (click)="addStudent()" type="submit">Add</button>
 <div *ngIf="isNewStudentActive">
-  <app-new-student (sendStudent)="handleStudent($event)"></app-new-student>
+  <app-new-student class="form-add" (sendStudent)="handleStudent($event)"></app-new-student>
   <button class="btn btn-outline-success" (click)="back()" type="submit">Back</button>
 </div>
 <div>

@@ -17,7 +17,7 @@ export class ProfileService {
   //Obtener lista de estudiantes
 
   getStudents():Observable<StudentResponse> {
-    return this.http.get<StudentResponse>(`${this.baseUrl}/?results=5&inc=name,email,picture`);
+    return this.http.get<StudentResponse>(`${this.baseUrl}/?results=10&inc=name,email,picture`);
   }
 
 }

@@ -35,18 +35,15 @@ export class StudentListComponent implements OnInit {
   }
 
   public handleStudent(student: Student): void {
-    console.log(student);
     this.studentList.push(student);
     this.isNewStudentActive = false;
   }
 
   public deleteStudent(student: Student):void{
-    console.log(student);
-    console.log(this.studentList);
-    
-    
     const index = this.studentList.findIndex((item) => item.name === student.name);
     const list = this.studentList.splice(index, 1);
+    console.log(list);
+    
   }
 
 }
